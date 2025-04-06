@@ -2,49 +2,102 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Hair Greg</title>
+  <title>Pagina 3D con Logo</title>
   <style>
-    /* Fullscreen con sfondo nero */
-    html, body {
+    /* Reset base */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
       height: 100%;
+      font-family: Arial, sans-serif;
+      transition: background-color 0.3s ease;
+    }
+    body.light {
+      background-color: #ffffff;
+      color: #000;
+    }
+    body.dark {
+      background-color: #000000;
+      color: #fff;
+    }
+    /* Header con logo centrato */
+    header {
       width: 100%;
-      background-color: black;
+      padding: 20px 0;
+      text-align: center;
     }
-    /* Header fisso con logo centrato */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 10px;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-      display: flex;
-      justify-content: center; /* Centra il contenuto orizzontalmente */
-      align-items: center;
+    header img {
+      max-width: 200px;
+      height: auto;
     }
-    .header img {
-      height: 50px; /* Regola la dimensione del logo */
-    }
-    /* Contenuto principale che parte sotto l'header */
+    /* Container principale per il contenuto 3D */
     .content {
-      margin-top: 70px; /* Spazio per l'header */
-      height: calc(100% - 70px);
-      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100% - 100px); /* lascia spazio per l'header */
+    }
+    /* Wrapper per l'embed Sketchfab, centrato */
+    .sketchfab-embed-wrapper {
+      max-width: 90%;
+      margin: 20px auto;
+    }
+    iframe {
+      width: 100%;
+      height: 500px; /* Puoi modificare l'altezza in base alle tue esigenze */
+      border: none;
+    }
+    /* Bottone tema in basso a destra */
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #000;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    /* Stato per bottone in tema dark (quando sfondo è nero, bottone diventa bianco) */
+    body.dark .theme-toggle {
+      background-color: #fff;
     }
   </style>
 </head>
-<body>
+<body class="light">
   <!-- Header con logo centrato -->
-  <div class="header">
-    <img src="Logo.png" alt="Logo">
-  </div>
-<div class="sketchfab-embed-wrapper"> <iframe title="Realistic Hair Braid Viking Realtime" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="2640" height="2640" src="https://sketchfab.com/models/d648ad893aa549bfae07c9e020347398/embed?autospin=1&autostart=1&preload=1&transparent=1&dnt=1"> </iframe> </div>
-  <!-- Contenuto della pagina -->
+  <header>
+    <img src="logo.png" alt="Logo">
+  </header>
+  
+  <!-- Contenuto principale: embed 3D -->
   <div class="content">
-    <!-- Inserisci qui il contenuto della tua pagina -->
+    <div class="sketchfab-embed-wrapper">
+      <iframe title="Realistic Hair Braid Viking Realtime" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="2640" height="2640" src="https://sketchfab.com/models/d648ad893aa549bfae07c9e020347398/embed?autospin=1&autostart=1&preload=1&transparent=1&dnt=1"></iframe>
+    </div>
   </div>
+  
+  <!-- Bottone per togglare il tema -->
+  <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()"></button>
+  
+  <script>
+    // Funzione per togglare tra tema chiaro e scuro
+    function toggleTheme() {
+      const body = document.body;
+      if (body.classList.contains('light')) {
+        body.classList.remove('light');
+        body.classList.add('dark');
+      } else {
+        body.classList.remove('dark');
+        body.classList.add('light');
+      }
+    }
+  </script>
 </body>
 </html>
