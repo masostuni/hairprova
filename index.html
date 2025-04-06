@@ -1,1 +1,49 @@
-<div class="sketchfab-embed-wrapper"> <iframe title="Realistic Hair Braid Viking Realtime" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="640" height="640" src="https://sketchfab.com/models/d648ad893aa549bfae07c9e020347398/embed?autospin=1&autostart=1&preload=1&transparent=1&dnt=1"> </iframe> </div>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Hair Prova</title>
+  <style>
+    /* Fullscreen con sfondo nero */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background-color: black;
+    }
+    /* Header fisso con logo centrato */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      display: flex;
+      justify-content: center; /* Centra il contenuto orizzontalmente */
+      align-items: center;
+    }
+    .header img {
+      height: 50px; /* Regola la dimensione del logo */
+    }
+    /* Contenuto principale che parte sotto l'header */
+    .content {
+      margin-top: 70px; /* Spazio per l'header */
+      height: calc(100% - 70px);
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header con logo centrato -->
+  <div class="header">
+    <img src="URL_DEL_TUO_LOGO" alt="Logo">
+  </div>
+  <!-- Contenuto della pagina -->
+  <div class="content">
+    <!-- Inserisci qui il contenuto della tua pagina -->
+  </div>
+</body>
+</html>
